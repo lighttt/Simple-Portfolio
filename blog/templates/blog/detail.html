@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Manish Tuladhar</title>
+    <title>{{ blog.title }}</title>
 
     <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -44,44 +44,21 @@
             <a class="nav-item nav-link" href="http://www.facebook.com/lightttkun">Facebook </a>
             <a class="nav-item nav-link" href="https://www.instagram.com/lighttt.kun">Instagram</a>
             <a class="nav-item nav-link" href="{% static 'resume.pdf'%}">Resume</a>
-            <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+            <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
           </div>
         </div>
       </nav>
 </header>
 
 <main role="main">
-
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1 class="jumbotron-heading">Hi, I'm Manish.</h1>
-      <p class="lead text-muted">Hey, my name is Manish Tuladhar and I love to make Django websites. It's the thrill of handling the requests that the people want!.</p>
-      <p>
-        <a href="mailto:manish.eclipse@gmail.com" class="btn btn-primary my-2">Email Me</a>
-      </p>
-      <img src="{% static 'manish.jpg' %}" height="300" width="300"/>
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-
-        {% for job in jobs.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{ job.image.url }}"/>
-            <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-
-        </div>
-        </div>
-      </div>
+  <div class="container">
+    <h1 class="text-center pt-3">{{ blog.title }} </h1>
+    <p class="text-center"> {{ blog.pub_date }} </p>
+      <img class="img-fluid" src="{{blog.image.url}}"/>
+      <br/>
+      <br/>
+    <p> {{ blog.body }} </p>
+  </div>
 </main>
 
 <footer class="text-muted">
@@ -89,7 +66,7 @@
     <p> &copy Manish Tuladhar {% now "Y" %} </p>
   </div>
 </footer>
-<!---------------------- JavaScript ----------------------------->
+<!--- JavaScript ----------------------------->
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
